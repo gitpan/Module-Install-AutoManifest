@@ -6,13 +6,15 @@ package Module::Install::AutoManifest;
 use Module::Install::Base;
 
 BEGIN {
-  our $VERSION = '0.001';
+  our $VERSION = '0.002';
   our $ISCORE  = 1;
   our @ISA     = qw(Module::Install::Base);
 }
 
 sub auto_manifest {
   my ($self) = @_;
+
+  return unless $Module::Install::AUTHOR;
 
   die "auto_manifest requested, but no MANIFEST.SKIP exists\n"
     unless -e "MANIFEST.SKIP";
@@ -41,7 +43,7 @@ Module::Install::AutoManifest - generate MANIFEST automatically
 
 =head1 VERSION
 
-Version 0.001
+Version 0.002
 
 =cut
 
